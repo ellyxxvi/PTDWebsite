@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  
+   <!-- font awesome cdn link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   <!-- custom css file link  -->
+
+   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+  
+    * {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      text-decoration: none;
+      text-transform: capitalize;
+      transition: all .2s linear;
+    }
+  
+    body {
+      background-color: #272323;
+    }
+  
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 25px 20px;
+    }
+  
+    .heading {
+      font-size: 70px;
+      margin-bottom: 35Px;
+      color: #fff;
+      align-items: center;
+      justify-content: center;
+      width: 100;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    .heading-line {
+  border: none;
+  border-bottom: 2px solid white;
+  margin: 0 auto;
+  width: 50%;
+}
+  
+    @media (max-width: 768px) {
+      .heading {
+        font-size: 32px;
+        letter-spacing: 2px;
+      }
+    }
+  
+    @media (max-width: 450px) {
+      .heading {
+        font-size: 28px;
+        letter-spacing: 1px;
+      }
+    }
+
+    .container .category {
+      font-size: 30px;
+      color: #fff;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 20px;
+      
+    }
+  
+    .container .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+  
+    .container .box-container .box {
+      background-color: #504b4b;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    }
+  
+    .container .box-container .box .image {
+      margin-bottom: 20px;
+      overflow: hidden;
+      height: 250px;
+      border-radius: 5px;
+    }
+  
+    .container .box-container .box .image img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  
+    .container .box-container .box:hover .image img {
+      transform: scale(1.1);
+    }
+  
+    .container .box-container .box .content h3 {
+      font-size: 20px;
+      color: orange;
+    }
+  
+    .container .box-container .box .content p {
+      font-size: 15px;
+      color: #fff;
+      line-height: 2;
+      padding: 15px 0;
+    }
+  
+    .container .box-container .box .content .btn {
+      display: inline-block;
+      padding: 10px 30px;
+      border: 1px solid #334;
+      color: #334;
+      font-size: 16px;
+    }
+  
+    .container .box-container .box .content .btn:hover {
+      background-color: crimson;
+      border-color: crimson;
+      color: #fff;
+    }
+  
+    .container .box-container .box .content .icons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 1px solid #334;
+    }
+  
+    .container .box-container .box .content .icons span {
+      font-size: 14px;
+      color: #777;
+    }
+  
+    .container .box-container .box .content .icons span i {
+      color: crimson;
+      padding-right: 5px;
+    }
+  
+    #load-more, #load-less {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 13px 30px;
+      border: 1px solid green;
+      color: white;
+      font-size: 16px;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  
+    #load-more:hover,
+    #load-less:hover {
+      background-color: crimson;
+      border-color: crimson;
+      color: #fff;
+    }
+
+     #load-less {
+    display: none;
+  }
+  
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      width: 80%;
+      max-width: 1600px;
+      height: 90vh;
+      max-height: 800px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      overflow: hidden;
+      transition: 1s;
+      opacity: 0;
+    }
+
+    .popup.active {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    .popup .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .popup .image-container {
+      max-width: 100%;
+      max-height: 100%;
+      padding: 60px;
+    }
+
+    .popup .image-container img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0 auto;
+    }
+  
+    @media (max-width: 450px) {
+      .container .heading {
+        font-size: 25px;
+      }
+  
+      .container .box-container {
+        grid-template-columns: 1fr;
+      }
+  
+      .container .box-container .box .image {
+        height: 200px;
+      }
+  
+      .container .box-container .box .content p {
+        font-size: 12px;
+      }
+  
+      .container .box-container .box .content .icons span {
+        font-size: 12px;
+      }
+    }
+
+    #home {
+  position: relative;
+  height: 50vh;
+}
+
+#carouselExampleControls {
+  position: relative;
+  height: 100%; /* Set the height to 100% of the parent container (home section) */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px; /* Adjust the width as needed */
+  height: 100px; /* Allow the height to adjust based on the aspect ratio */
+  background-color: transparent;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  z-index: 10;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 20px;
+  height: 20px;
+  background-size: 10%;
+  color: red;
+}
+
+.carousel-control-prev {
+  left: 2%; /* Adjust the positioning as needed */
+}
+
+.carousel-control-next {
+  right: 2%; /* Adjust the positioning as needed */
+}
+
+.carousel-control-prev-icon::before {
+  content: '<';
+  color: white;
+  font-size: 24px;
+}
+
+.carousel-control-next-icon::before {
+  content: '>';
+  color: white;
+  font-size: 24px;
+}
+
+.carousel-inner {
+  height: 100%; /* Set the height to 100% of the parent container (home section) */
+}
+
+.carousel-item img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+
+.slider-content .container {
+  max-width: 800px;
+}
+
+.slider-content h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.slider-content p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.rounded-button {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+}
+
+.rounded-button:hover {
+  background-color: #333333;
+}
+
+/* Add your existing CSS code for the section here */
+
+.d-block {
+  display: block;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+    
+  </style>
+</head>
+<body>
+
+  <section id="home">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Images will be dynamically added here -->
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="slider-content">
+      <div class="container">
+        <div class="row">
+          <h2>PEACHTREE DESIGNS</h2>
+        </div>
+        <div class="row">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+    <div>
+      <h1 class="heading">OUR PORTFOLIO</h1>
+       <hr class="heading-line">
+    </div>
+     
+   <div id="category-container"></div>
+
+  <!-- Popup Image -->
+  <div class="popup">
+    <span class="close-btn">&times;</span>
+    <div class="image-container">
+      <img src ="" alt="Popup Image">
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script>
+const images = [
+  'images/bg_img1.png',
+  'images/bg_img2.png',
+  'images/bg_img3.png',
+  // Add more image URLs as needed
+];
+
+const carouselInner = document.querySelector('.carousel-inner');
+
+// Dynamically add carousel items with images
+images.forEach((imageUrl, index) => {
+  const carouselItem = document.createElement('div');
+  carouselItem.classList.add('carousel-item');
+  if (index === 0) {
+    carouselItem.classList.add('active');
+  }
+  const image = document.createElement('img');
+  image.src = imageUrl;
+  image.classList.add('d-block', 'w-100', 'vh-100', 'object-fit-cover');
+  carouselItem.appendChild(image);
+  carouselInner.appendChild(carouselItem);
+});
+
+  const categories = [
+    {
+      id: 'category1',
+      name: 'Category 1',
+      dynamicContent: [
+        {
+          imageSrc: 'images/1.jpg',
+          title: 'Title 1',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/2.jpg',
+          title: 'Title 2',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        // Add more objects for additional boxes
+        {
+          imageSrc: 'images/3.jpg',
+          title: 'Title 3',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/4.jpg',
+          title: 'Title 4',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+      ]
+    },
+    {
+      id: 'category2',
+      name: 'Category 2',
+      dynamicContent: [
+        {
+          imageSrc: 'images/5.jpg',
+          title: 'Title 5',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/6.jpg',
+          title: 'Title 6',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        // Add more objects for additional boxes
+        {
+          imageSrc: 'images/7.jpg',
+          title: 'Title 7',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/8.jpg',
+          title: 'Title 8',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+      ]
+    },
+    {
+      id: 'category3',
+      name: 'Category 3',
+      dynamicContent: [
+        {
+          imageSrc: 'images/9.jpg',
+          title: 'Title 9',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/10.jpg',
+          title: 'Title 10',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        // Add more objects for additional boxes
+        {
+          imageSrc: 'images/11.jpg',
+          title: 'Title 11',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/12.jpg',
+          title: 'Title 12',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+      ]
+    },
+    {
+      id: 'category4',
+      name: 'Category 4',
+      dynamicContent: [
+        {
+          imageSrc: 'images/13.jpg',
+          title: 'Title 9',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/14.jpg',
+          title: 'Title 10',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        // Add more objects for additional boxes
+        {
+          imageSrc: 'images/15.jpg',
+          title: 'Title 11',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+        {
+          imageSrc: 'images/1.jpg',
+          title: 'Title 12',
+          description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!'
+        },
+      ]
+    }
+    // Add more categories here
+  ];
+
+  // Function to create box containers
+  function createBoxContainer(categoryIndex) {
+    const category = categories[categoryIndex];
+    const container = document.createElement('div');
+    container.classList.add('container');
+    container.id = category.id;
+
+    const categoryHeading = document.createElement('p');
+    categoryHeading.classList.add('category');
+    categoryHeading.id = `${category.id}-heading`;
+    categoryHeading.textContent = category.name;
+    container.appendChild(categoryHeading);
+
+    const boxContainer = document.createElement('div');
+    boxContainer.classList.add('box-container');
+
+    category.dynamicContent.slice(0, 3).forEach((item) => {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      box.innerHTML = `
+        <div class="image">
+          <img src="${item.imageSrc}" alt="">
+        </div>
+        <div class="content">
+          <h3>${item.title}</h3>
+          <p>${item.description}</p>
+        </div>
+      `;
+      boxContainer.appendChild(box);
+    });
+
+    container.appendChild(boxContainer);
+
+    const loadMoreBtn = document.createElement('div');
+  loadMoreBtn.id = 'load-more';
+  loadMoreBtn.classList.add('btn');
+  loadMoreBtn.innerHTML = 'Load More  &nbsp; <i class="fas fa-arrow-down"></i>';
+  container.appendChild(loadMoreBtn);
+
+  const loadLessBtn = document.createElement('div');
+  loadLessBtn.id = 'load-less';
+  loadLessBtn.classList.add('btn');
+  loadLessBtn.innerHTML = 'Load Less &nbsp; <i class="fas fa-arrow-up"></i>';
+  loadLessBtn.style.display = 'none';
+  container.appendChild(loadLessBtn);
+
+    document.getElementById('category-container').appendChild(container);
+
+    loadMoreBtn.addEventListener('click', () => loadMoreItems(categoryIndex));
+    loadLessBtn.addEventListener('click', () => loadLessItems(categoryIndex));
+
+    // Event listener for opening the popup
+    boxContainer.addEventListener('click', (event) => {
+      const clickedImage = event.target.closest('.box .image img');
+      if (clickedImage) {
+        const imageSrc = clickedImage.getAttribute('src');
+        openPopup(imageSrc);
+      }
+    });
+  }
+
+function loadMoreItems(categoryIndex) {
+  const category = categories[categoryIndex];
+  const boxContainer = document.querySelectorAll('.box-container')[categoryIndex];
+  const loadMoreBtn = document.querySelectorAll('#load-more')[categoryIndex];
+  const loadLessBtn = document.querySelectorAll('#load-less')[categoryIndex];
+  const currentItemCount = boxContainer.querySelectorAll('.box').length;
+  const newItems = category.dynamicContent.slice(currentItemCount, currentItemCount + 3);
+
+  newItems.forEach((item) => {
+    const box = document.createElement('div');
+    box.classList.add('box');
+    box.innerHTML = `
+      <div class="image">
+        <img src="${item.imageSrc}" alt="">
+      </div>
+      <div class="content">
+        <h3>${item.title}</h3>
+        <p>${item.description}</p>
+      </div>
+    `;
+    boxContainer.appendChild(box);
+  });
+
+  const totalItemCount = boxContainer.querySelectorAll('.box').length;
+
+  if (totalItemCount > 3 && totalItemCount < category.dynamicContent.length) {
+    loadMoreBtn.style.display = 'inline-block';
+  } else {
+    loadMoreBtn.style.display = 'none';
+  }
+
+  loadLessBtn.style.display = 'inline-block';
+}
+
+
+  // Function to load fewer items
+  function loadLessItems(categoryIndex) {
+    const boxContainer = document.querySelectorAll('.box-container')[categoryIndex];
+    const loadMoreBtn = document.querySelectorAll('#load-more')[categoryIndex];
+    const loadLessBtn = document.querySelectorAll('#load-less')[categoryIndex];
+    const itemsToRemove = boxContainer.querySelectorAll('.box:nth-child(n+4)');
+
+    itemsToRemove.forEach((item) => {
+      boxContainer.removeChild(item);
+    });
+
+    if (boxContainer.querySelectorAll('.box').length <= 3) {
+      loadLessBtn.style.display = 'none';
+    }
+
+    loadMoreBtn.style.display = 'inline-block';
+  }
+
+  // Popup elements
+  const popup = document.querySelector('.popup');
+  const closeBtn = document.querySelector('.popup .close-btn');
+  const imageContainer = document.querySelector('.popup .image-container');
+
+  // Function to open the popup
+  function openPopup(imageSrc) {
+    imageContainer.innerHTML = `<img src="${imageSrc}" alt="Popup Image">`;
+    popup.classList.add('active');
+  }
+
+  // Function to close the popup
+  function closePopup() {
+    popup.classList.remove('active');
+  }
+
+  // Call the createBoxContainer function for each category
+  categories.forEach((category, index) => {
+    createBoxContainer(index);
+  });
+
+  // Event listener for closing the popup
+  closeBtn.addEventListener('click', closePopup);
+
+
+</script>
+</body>
+</html>
