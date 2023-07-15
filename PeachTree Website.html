@@ -43,25 +43,25 @@
 				<div class="row">
 					<!-- Rounded buttons -->
 					<div class="button-container">
-						<button class="btn rounded-button">OUR OFFERS</button>
-						<button class="btn rounded-button">PORTFOLIO</button>
+						<button class="btn rounded-button" onclick="scrollToOffers()">OUR OFFERS</button>
+						<button class="btn rounded-button" onclick="scrollToPortfolio()">PORTFOLIO</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
+
 
 	<!-- INTRODUCTORY SECTION -->
 	<section id="introductory">
 		<header>
-			<nav>
+			<nav id="navbar" class="navbar">
 				<ul>
-					<li><a href="#home">HOME</a></li>
-					<li><a href="#">PORTFOLIO</a></li>
+					<li><a href="#introductory">HOME</a></li>
+					<li><a href="#portfolio">PORTFOLIO</a></li>
 					<li><a href="#"><img src="images/logo_nobg.png" alt="Logo"></a></li>
-					<li><a href="#">ABOUT</a></li>
-					<li><a href="#">CONTACT US</a></li>
+					<li><a href="#aboutus">ABOUT</a></li>
+					<li><a href="#contactus">CONTACT US</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -71,13 +71,12 @@
 				<div class="col col-lg-6 col-sm-12 order-lg-1 order-md-2">
 					<img src="images/zae.png" class="d-block w-100 object-fit-cover" alt="Photo">
 				</div>
-
 				<div class="col col-lg-6 col-sm-12 order-lg-2 order-md-1">
 					<div class="introductory-text">
 						<p> ABOUT </p>
 						<h2><span class="peach">PEACH</span><span class="tree">TREE</span> <span
 								class="white">DESIGNS</span></h2>
-						<p>PeachTree Designs was an idea crafted from an initiative to break the norm and form a
+						<p><br>PeachTree Designs was an idea crafted from an initiative to break the norm and form a
 							distinct
 							entrepreneurship of people who look to create and inspire. With all of us pertaining both
 							knowledge
@@ -103,29 +102,35 @@
 
 	<!-- OFFERS SECTION -->
 	<section id="Offers">
-		<div class="container-fluid background-image">
-		  <div class="overlay"></div>
-	  
-		  <div class="row mx-5">
-			<div class="col-lg-6 col-sm-12 order-lg-1 order-md-2 my-auto">
-			  <div class="text">
-				<h2>CHECK OUT OUR OFFERS</h2>
-				<p>At PeachTree Designs, we offer a wide variety of services.<br>This can range from Level Design, 3D Modeling and much more!</p>
-			  </div>
-			</div>
-	  
-			<div class="col-lg-6 col-sm-12 order-lg-2 order-md-1">
-			  <img src="images/val.png" class="d-block w-100 h-auto object-fit-cover overlap-image" alt="Photo">
-			</div>
-		  </div>
-		  <div class="arrow-down"></div>
-		</div>
-	  
-		<div id="OffersContent" class="offers-content">
-		  <!-- Dynamic content will be added here -->
-		</div>
-	  </section>
+		<div class="offers-bar">
+			<div class="container-fluid background-image">
+				<div class="overlay"></div>
+				<div class="row mx-5">
+					<div class="col col-lg-6 col-md-12 col-sm-12 m-auto">
+						<div class="text">
+							<h2>CHECK OUT OUR OFFERS</h2>
+							<p>At PeachTree Designs, we offer a wide variety of services.<br>This can range from Level
+								Design, 3D Modeling and much more!</p>
+						</div>
+					</div>
 
+					<div class="col col-lg-6 col-md-12 col-sm-12">
+						<img src="images/val.png" class="d-block h-auto overlap-image" alt="Photo">
+					</div>
+				</div>
+
+				<div class="arrow-down"></div>
+			</div>
+		</div>
+		<div class="content-container">
+			<div id="OffersContent" class="offers-content">
+				<!-- Dynamic content will be added here -->
+			</div>
+		</div>
+	</section>
+
+
+<!-- PORTFOLIO SECTION -->
 	<section id="portfolio">
 		<div class="pf-overlay"></div>
 		<div class="pf-overlay2"></div>
@@ -170,18 +175,18 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 	<section id="aboutus">
-		<div class="au_team-section">
-			<h1 class="au_team-description"><span class="our">OUR</span> <span class="team">TEAM</span></h1>
-			<p class="au_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris quis leo
-				blandit tincidunt at vel ante. Nulla facilisi.</p>
-
-		</div>
-
-		<section class="mySwiper">
-			<div class="swiper-wrapper">
-				<!-- Dynamic cards will be inserted here -->
+		<div class="au-container">
+			<div class="au_team-section">
+				<h1 class="au_team-description"><span class="our">OUR</span> <span class="team">TEAM</span></h1>
+				<p class="au_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae mauris quis
+					leo blandit tincidunt at vel ante. Nulla facilisi.</p>
 			</div>
-		</section>
+			<section class="mySwiper">
+				<div class="swiper-wrapper">
+					<!-- Dynamic cards will be inserted here -->
+				</div>
+			</section>
+		</div>
 	</section>
 
 	<!-- CONTACT US SECTION -->
@@ -256,14 +261,16 @@
 								SITE MAP</h5>
 							<ul class="list-unstyled">
 								<li class="mb-2">
-									<a href="#!" class="text-white" style="opacity: 0.40;  margin-top: 50px;">Home</a>
+									<a href="#home" class="text-white"
+										style="opacity: 0.40;  margin-top: 50px;">Home</a>
 								</li>
 								<li class="mb-2">
-									<a href="#!" class="text-white"
+									<a href="#portfolio" class="text-white"
 										style="opacity: 0.40;  margin-top: 50px;">Portfolio</a>
 								</li>
 								<li class="mb-2">
-									<a href="#!" class="text-white" style="opacity: 0.40;  margin-top: 50px;">About</a>
+									<a href="#about" class="text-white"
+										style="opacity: 0.40;  margin-top: 50px;">About</a>
 								</li>
 							</ul>
 						</div>

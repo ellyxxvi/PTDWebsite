@@ -1,3 +1,39 @@
+  //HOME
+// Array of image URLs
+const images = [
+	'images/bg_img1.png',
+	'images/bg_img2.png',
+	// Add more image URLs as needed
+];
+
+const carouselInner = document.querySelector('.carousel-inner');
+
+// Dynamically add carousel items with images
+images.forEach((imageUrl, index) => {
+	const carouselItem = document.createElement('div');
+	carouselItem.classList.add('carousel-item');
+	if (index === 0) {
+		carouselItem.classList.add('active');
+	}
+	const image = document.createElement('img');
+	image.src = imageUrl;
+	image.classList.add('d-block', 'w-100', 'vh-100', 'object-fit-cover');
+	carouselItem.appendChild(image);
+	carouselInner.appendChild(carouselItem);
+});
+
+function scrollToOffers() {
+  const offersSection = document.getElementById("Offers");
+  offersSection.scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToPortfolio() {
+  const portfolioSection = document.getElementById("portfolio");
+  portfolioSection.scrollIntoView({ behavior: "smooth" });
+}
+
+  
+  // OFFERS
   // Define the offers data
   var offersData = [
     {
@@ -63,101 +99,77 @@
     // Append the row to the container
     container.appendChild(row);
   }
-//HOME
-// Array of image URLs
-const images = [
-	'images/bg_img1.png',
-	'images/bg_img2.png',
-	'images/bg_img3.png',
-	// Add more image URLs as needed
-];
 
-const carouselInner = document.querySelector('.carousel-inner');
+// ABOUT US
+    // Array list of card data
+    var cardData = [
+      {
+        image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
+        title: 'CEO',
+        name: 'Skott G.',
+        username: 'Zaenosyne',
+        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+      },
+      {
+        image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg',
+        title: 'CEO',
+        name: 'Emilia T.',
+        username: 'Valannd',
+        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+      },
+      {
+        image: 'https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.webp?b=1&s=170667a&w=0&k=20&c=96pCQon1xF3_onEkkckNg4cC9SCbshMvx0CfKl2ZiYs=',
+        title: 'CFO',
+        name: 'Meldrick R.',
+        username: 'Bongga',
+        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+      },
+      {
+        image: 'https://images.pexels.com/photos/5393594/pexels-photo-5393594.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        title: 'COO',
+        name: 'Jess L.',
+        username: 'Ijml',
+        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+      },
+    ];
 
-// Dynamically add carousel items with images
-images.forEach((imageUrl, index) => {
-	const carouselItem = document.createElement('div');
-	carouselItem.classList.add('carousel-item');
-	if (index === 0) {
-		carouselItem.classList.add('active');
-	}
-	const image = document.createElement('img');
-	image.src = imageUrl;
-	image.classList.add('d-block', 'w-100', 'vh-100', 'object-fit-cover');
-	carouselItem.appendChild(image);
-	carouselInner.appendChild(carouselItem);
-});
+    // Create dynamic cards
+    var swiperWrapper = document.querySelector('.swiper-wrapper');
 
-// ABOUT US 
-// Array list of card data
-var cardData = [
-	{
-		image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-		title: 'CEO',
-		name: 'Skott G.',
-		username: 'Zaenosyne',
-		text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-	},
-	{
-		image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg',
-		title: 'CEO',
-		name: 'Emilia T.',
-		username: 'Valannd',
-		text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-	},
-	{
-		image: 'https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.webp?b=1&s=170667a&w=0&k=20&c=96pCQon1xF3_onEkkckNg4cC9SCbshMvx0CfKl2ZiYs=',
-		title: 'CFO',
-		name: 'Meldrick R.',
-		username: 'Bongga',
-		text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-	},
-	{
-		image: 'https://images.pexels.com/photos/5393594/pexels-photo-5393594.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-		title: 'COO',
-		name: 'Jess L.',
-		username: 'Ijml',
-		text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-	},
-];
+    cardData.forEach(function(card) {
+      var cardHtml = `
+        <div class="card swiper-slide">
+          <div class="card__image">
+            <img src="${card.image}" alt="card image">
+          </div>
+          <div class="card__content">
+            <span class="card__title">${card.title}</span>
+            <span class="card__name">${card.name}</span>
+            <span class="card__username">${card.username}</span>
+            <p class="card__text">${card.text}</p>
+          </div>
+        </div>
+      `;
+      swiperWrapper.innerHTML += cardHtml;
+    });
 
-// Create dynamic cards
-var swiperWrapper = document.querySelector('.swiper-wrapper');
-
-cardData.forEach(function (card) {
-	var cardHtml = `
-	<div class="card swiper-slide">
-	  <div class="card__image">
-		<img src="${card.image}" alt="card image">
-	  </div>
-	  <div class="card__content">
-		<span class="card__title">${card.title}</span>
-		<span class="card__name">${card.name}</span>
-		<span class="card__username">${card.username}</span>
-		<p class="card__text">${card.text}</p>
-	  </div>
-	</div>
-	`;
-	swiperWrapper.innerHTML += cardHtml;
-});
-
-// Initialize Swiper
-var swiper = new Swiper(".mySwiper", {
-	effect: "coverflow",
-	grabCursor: true,
-	centeredSlides: true,
-	slidesPerView: "auto",
-	coverflowEffect: {
-		rotate: 0,
-		stretch: 0,
-		depth: 300,
-		modifier: 1,
-		slideShadows: false,
-	},
-	pagination: {
-		el: ".swiper-pagination",
-	},
-});
+    // Initialize Swiper
+    var swiper = new Swiper(".mySwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 300,
+        modifier: 1,
+        slideShadows: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
 
 // CONTACT US 
 const formData = {
@@ -202,6 +214,7 @@ const formData = {
 
 
 
+//   PORTFOLIO
 //   PORTFOLIO
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
