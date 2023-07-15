@@ -1,25 +1,25 @@
-  //HOME
+//HOME
 // Array of image URLs
 const images = [
-	'images/bg_img1.png',
-	'images/bg_img2.png',
-	// Add more image URLs as needed
+  'images/bg_img1.png',
+  'images/bg_img2.png',
+  // Add more image URLs as needed
 ];
 
 const carouselInner = document.querySelector('.carousel-inner');
 
 // Dynamically add carousel items with images
 images.forEach((imageUrl, index) => {
-	const carouselItem = document.createElement('div');
-	carouselItem.classList.add('carousel-item');
-	if (index === 0) {
-		carouselItem.classList.add('active');
-	}
-	const image = document.createElement('img');
-	image.src = imageUrl;
-	image.classList.add('d-block', 'w-100', 'vh-100', 'object-fit-cover');
-	carouselItem.appendChild(image);
-	carouselInner.appendChild(carouselItem);
+  const carouselItem = document.createElement('div');
+  carouselItem.classList.add('carousel-item');
+  if (index === 0) {
+    carouselItem.classList.add('active');
+  }
+  const image = document.createElement('img');
+  image.src = imageUrl;
+  image.classList.add('d-block', 'w-100', 'vh-100', 'object-fit-cover');
+  carouselItem.appendChild(image);
+  carouselInner.appendChild(carouselItem);
 });
 
 function scrollToOffers() {
@@ -32,112 +32,144 @@ function scrollToPortfolio() {
   portfolioSection.scrollIntoView({ behavior: "smooth" });
 }
 
-  
-  // OFFERS
-  // Define the offers data
-  var offersData = [
-    {
-      heading: "PEACHTREE OFFERS",
-      subheading: "QUALITY",
-      description: "PeachTree maintains a high-class calibre for every service provided; every member pertaining to our team is required to uphold this excellence regardless of the project or pay.",
-      imageSrc: "images/bongga.png"
-    },
-    {
-      heading: "PEACHTREE OFFERS",
-      subheading: "AFFORDABLE",
-      description: "We strive to attain ideal prices, not just for our team members, but for the client as well. It's paramount to us that we can serve our best work complementing a reasonable price.",
-      imageSrc: "images/jml.png"
-    },
-    {
-      heading: "PEACHTREE OFFERS",
-      subheading: "EFFICIENCY",
-      description: "Every deadline agreed upon between our team and client will be punctually met. Constant updates will be provided throughout the entirety of the process to assure the project is carried out swiftly.",
-      imageSrc: "images/blue&kraken.png"
-    }
-  ];
 
-  // Get the container element where the content will be added
-  var container = document.getElementById("OffersContent");
-
-  // Loop through the data and create the content dynamically
-  for (var i = 0; i < offersData.length; i++) {
-    // Create the row container
-    var row = document.createElement("div");
-    row.className = "row";
-
-    // Create the left content column
-    var leftContent = document.createElement("div");
-    leftContent.className = "left-content col-lg-6 col-sm-12 order-lg-" + (i % 2 === 0 ? 1 : 2) + " order-md-1";
-    row.appendChild(leftContent);
-
-    // Create the image for the left content column
-    var leftImage = document.createElement("img");
-    leftImage.src = offersData[i].imageSrc;
-    leftImage.alt = "Offer Photo";
-    leftContent.appendChild(leftImage);
-
-    // Create the right content column
-    var rightContent = document.createElement("div");
-    rightContent.className = "right-content col-lg-6 col-sm-12 order-lg-" + (i % 2 === 0 ? 2 : 1) + " order-md-2";
-    row.appendChild(rightContent);
-
-    // Create the heading for the right content column
-    var heading = document.createElement("h2");
-    heading.textContent = offersData[i].heading;
-    rightContent.appendChild(heading);
-
-    // Create the subheading for the right content column
-    var subheading = document.createElement("h2");
-    subheading.textContent = offersData[i].subheading;
-    rightContent.appendChild(subheading);
-
-    // Create the description for the right content column
-    var description = document.createElement("p");
-    description.textContent = offersData[i].description;
-    rightContent.appendChild(description);
-
-    // Append the row to the container
-    container.appendChild(row);
+// OFFERS
+// Define the offers data
+var offersData = [
+  {
+    heading: "PEACHTREE OFFERS",
+    subheading: "QUALITY",
+    description: "PeachTree maintains a high-class calibre for every service provided; every member pertaining to our team is required to uphold this excellence regardless of the project or pay.",
+    imageSrc: "images/bongga2.png"
+  },
+  {
+    heading: "PEACHTREE OFFERS",
+    subheading: "AFFORDABLE",
+    description: "We strive to attain ideal prices, not just for our team members, but for the client as well. It's paramount to us that we can serve our best work complementing a reasonable price.",
+    imageSrc: "images/jml.png"
+  },
+  {
+    heading: "PEACHTREE OFFERS",
+    subheading: "EFFICIENCY",
+    description: "Every deadline agreed upon between our team and client will be punctually met. Constant updates will be provided throughout the entirety of the process to assure the project is carried out swiftly.",
+    imageSrc: "images/blue&kraken.png"
   }
+];
+
+// Get the container element where the content will be added
+var container = document.getElementById("OffersContent");
+
+// Loop through the data and create the content dynamically
+for (var i = 0; i < offersData.length; i++) {
+  var row = document.createElement("div");
+  row.className = "row offer-slide";
+
+  var leftContent = document.createElement("div");
+  leftContent.className = "left-content col-lg-6 col-sm-12 order-lg-" + (i % 2 === 0 ? 1 : 2) + " order-md-1";
+  row.appendChild(leftContent);
+
+  var leftImage = document.createElement("img");
+  leftImage.src = offersData[i].imageSrc;
+  leftImage.alt = "Offer Photo";
+  leftContent.appendChild(leftImage);
+
+  var rightContent = document.createElement("div");
+  rightContent.className = "right-content col-lg-6 col-sm-12 order-lg-" + (i % 2 === 0 ? 2 : 1) + " order-md-2";
+  row.appendChild(rightContent);
+
+  var heading = document.createElement("h2");
+  heading.textContent = offersData[i].heading;
+  rightContent.appendChild(heading);
+
+  var subheading = document.createElement("h2");
+  subheading.textContent = offersData[i].subheading;
+  rightContent.appendChild(subheading);
+
+  var description = document.createElement("p");
+  description.textContent = offersData[i].description;
+  rightContent.appendChild(description);
+
+  container.appendChild(row);
+}
+
+// Helper function to check if an element is in the viewport
+function isInViewport(element) {
+  var rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Function to handle the scroll event
+function handleScroll() {
+  var offersContent = document.querySelectorAll(".offer-slide"); // Select elements with 'offer-slide' class
+
+  offersContent.forEach(function (offer) {
+    if (isInViewport(offer) && !offer.classList.contains("slide-in")) {
+      offer.classList.add("slide-in");
+    }
+  });
+}
+
+// Attach the scroll event listener
+window.addEventListener("scroll", handleScroll);
+
+// Trigger the scroll event on page load to apply the animation to the visible elements
+window.addEventListener("load", handleScroll);
+
+
+
+// ARROW DOWN FUNCTIONS
+var arrowDown = document.querySelector("#Offers .arrow-down");
+
+arrowDown.addEventListener("click", function () {
+  var contentContainer = document.querySelector("#Offers .content-container");
+  contentContainer.scrollIntoView({ behavior: "smooth" });
+});
+
+
 
 // ABOUT US
-    // Array list of card data
-    var cardData = [
-      {
-        image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
-        title: 'CEO',
-        name: 'Skott G.',
-        username: 'Zaenosyne',
-        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-      },
-      {
-        image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg',
-        title: 'CEO',
-        name: 'Emilia T.',
-        username: 'Valannd',
-        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-      },
-      {
-        image: 'https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.webp?b=1&s=170667a&w=0&k=20&c=96pCQon1xF3_onEkkckNg4cC9SCbshMvx0CfKl2ZiYs=',
-        title: 'CFO',
-        name: 'Meldrick R.',
-        username: 'Bongga',
-        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-      },
-      {
-        image: 'https://images.pexels.com/photos/5393594/pexels-photo-5393594.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        title: 'COO',
-        name: 'Jess L.',
-        username: 'Ijml',
-        text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
-      },
-    ];
+// Array list of card data
+var cardData = [
+  {
+    image: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg',
+    title: 'CEO',
+    name: 'Skott G.',
+    username: 'Zaenosyne',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+  },
+  {
+    image: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?cs=srgb&dl=pexels-andrea-piacquadio-733872.jpg&fm=jpg',
+    title: 'CEO',
+    name: 'Emilia T.',
+    username: 'Valannd',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+  },
+  {
+    image: 'https://media.istockphoto.com/id/1300972574/photo/millennial-male-team-leader-organize-virtual-workshop-with-employees-online.webp?b=1&s=170667a&w=0&k=20&c=96pCQon1xF3_onEkkckNg4cC9SCbshMvx0CfKl2ZiYs=',
+    title: 'CFO',
+    name: 'Meldrick R.',
+    username: 'Bongga',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+  },
+  {
+    image: 'https://images.pexels.com/photos/5393594/pexels-photo-5393594.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    title: 'COO',
+    name: 'Jess L.',
+    username: 'Ijml',
+    text: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit veritatis labore provident non tempora odio est sunt, ipsum',
+  },
+];
 
-    // Create dynamic cards
-    var swiperWrapper = document.querySelector('.swiper-wrapper');
+// Create dynamic cards
+var swiperWrapper = document.querySelector('.swiper-wrapper');
 
-    cardData.forEach(function(card) {
-      var cardHtml = `
+cardData.forEach(function (card) {
+  var cardHtml = `
         <div class="card swiper-slide">
           <div class="card__image">
             <img src="${card.image}" alt="card image">
@@ -150,71 +182,66 @@ function scrollToPortfolio() {
           </div>
         </div>
       `;
-      swiperWrapper.innerHTML += cardHtml;
-    });
+  swiperWrapper.innerHTML += cardHtml;
+});
 
-    // Initialize Swiper
-    var swiper = new Swiper(".mySwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 300,
-        modifier: 1,
-        slideShadows: false,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-    });
+// Initialize Swiper
+var swiper = new Swiper(".mySwiper", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 300,
+    modifier: 1,
+    slideShadows: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
 
 // CONTACT US 
 const formData = {
-	name: '',
-	email: '',
-	message: ''
-  };
+  name: '',
+  email: '',
+  message: ''
+};
 
-  // Function to update the form inputs based on the data object
-  function updateFormInputs() {
-	document.getElementById('name-input').value = formData.name;
-	document.getElementById('email-input').value = formData.email;
-	document.getElementById('message-input').value = formData.message;
-  }
+// Function to update the form inputs based on the data object
+function updateFormInputs() {
+  document.getElementById('name-input').value = formData.name;
+  document.getElementById('email-input').value = formData.email;
+  document.getElementById('message-input').value = formData.message;
+}
 
-  // Function to handle form submission
-  function submitForm() {
-	// Retrieve the values from the inputs
-	formData.name = document.getElementById('name-input').value;
-	formData.email = document.getElementById('email-input').value;
-	formData.message = document.getElementById('message-input').value;
+// Function to handle form submission
+function submitForm() {
+  // Retrieve the values from the inputs
+  formData.name = document.getElementById('name-input').value;
+  formData.email = document.getElementById('email-input').value;
+  formData.message = document.getElementById('message-input').value;
 
-	// Perform further processing or submission logic
-	console.log(formData); // Example: Print form data to the console
+  // Perform further processing or submission logic
+  console.log(formData); // Example: Print form data to the console
 
-	// Reset form inputs after submission
-	resetFormInputs();
-  }
+  // Reset form inputs after submission
+  resetFormInputs();
+}
 
-  // Function to reset form inputs
-  function resetFormInputs() {
-	formData.name = '';
-	formData.email = '';
-	formData.message = '';
-	updateFormInputs();
-  }
-
-  // Update the form inputs initially
+// Function to reset form inputs
+function resetFormInputs() {
+  formData.name = '';
+  formData.email = '';
+  formData.message = '';
   updateFormInputs();
+}
 
+// Update the form inputs initially
+updateFormInputs();
 
-
-
-
-//   PORTFOLIO
 //   PORTFOLIO
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryControlsContainer = document.querySelector('.gallery-controls');
@@ -227,7 +254,7 @@ let activeNavIndicator = document.querySelector('.pfnav-link.active .pfav-indica
 const contentData = [
   {
     category: '1',
-    images:[
+    images: [
       'images/1.jpg',
       'images/2.jpg',
       'images/3.jpg',
@@ -357,14 +384,14 @@ class Carousel {
   }
 
   updateBackgroundImage() {
-	const activeItem = this.carouselArray.find((item) => item.classList.contains('gallery-item-3'));
-	const backgroundImage = activeItem.src;
-  
-	portfolio.style.transition = 'zoom-in 0.5s ease-in-out';
-	portfolio.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${backgroundImage})`;
-	portfolio.style.backgroundSize = 'cover';
-	portfolio.style.backgroundPosition = 'center';
-	portfolio.style.backgroundRepeat = 'no-repeat';
+    const activeItem = this.carouselArray.find((item) => item.classList.contains('gallery-item-3'));
+    const backgroundImage = activeItem.src;
+
+    portfolio.style.transition = 'zoom-in 0.5s ease-in-out';
+    portfolio.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${backgroundImage})`;
+    portfolio.style.backgroundSize = 'cover';
+    portfolio.style.backgroundPosition = 'center';
+    portfolio.style.backgroundRepeat = 'no-repeat';
   }
 
   updateText(title, description) {

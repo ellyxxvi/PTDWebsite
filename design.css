@@ -44,14 +44,14 @@ body {
 .slider-content h2 {
 	font-size: 64px;
 	margin-bottom: 10px;
-	font-family: Poppins;
+	font-family: 'Poppins';
 	letter-spacing: 5px;
 }
 
 .slider-content p {
 	font-size: 20px;
 	color: #ffffff;
-	font-family: Poppins;
+	font-family: 'Poppins';
 	letter-spacing: 3px;
 }
 
@@ -99,13 +99,49 @@ body {
 	border-radius: 3px 0 0 3px;
 }
 
-@keyframes fade {
-	from {
-		opacity: 0.5;
+/* Media Queries */
+@media screen and (max-width: 768px) {
+	.home {
+		height: auto;
 	}
 
-	to {
-		opacity: 1;
+	.slider-content h2 {
+		font-size: 48px;
+	}
+
+	.slider-content p {
+		font-size: 16px;
+	}
+
+	.rounded-button {
+		width: 200px;
+	}
+
+	.prev,
+	.next {
+		font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.slider-content h2 {
+		font-size: 36px;
+	}
+
+	.slider-content p {
+		font-size: 14px;
+	}
+
+	.rounded-button {
+		width: 180px;
+		padding: 8px 16px;
+		font-size: 16px;
+	}
+
+	.prev,
+	.next {
+		font-size: 24px;
+		padding: 30px;
 	}
 }
 
@@ -152,7 +188,7 @@ header {
 #navbar ul li a {
 	font-size: 18px;
 	color: #ffffff;
-	font-family: Poppins;
+	font-family: 'Poppins';
 	transition: color 0.3s ease;
 	text-decoration: none;
 }
@@ -167,23 +203,11 @@ header {
 
 #navbar ul li img {
 	height: 150px;
-	width: 200;
+	width: 220px;
 	position: absolute;
 	top: -40px;
 	left: calc(50% - 120px);
 	z-index: 1;
-}
-
-@media screen and (max-width: 768px) {
-	#navbar ul li {
-		padding: 0px 10px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	#navbar ul li {
-		padding: 0px 5px;
-	}
 }
 
 .content {
@@ -202,7 +226,7 @@ header {
 }
 
 .content .introductory-text h2 {
-	font-family: Poppins;
+	font-family: 'Poppins';
 	font-size: 30px;
 	font-weight: bold;
 	margin-bottom: 10px;
@@ -214,7 +238,7 @@ header {
 }
 
 .content .introductory-text h2 .tree {
-	color: #3C8527;
+	color: green;
 }
 
 .content .introductory-text h2 .white {
@@ -223,8 +247,8 @@ header {
 
 .content .introductory-text p {
 	font-size: 16px;
-	color: #ffffff;
-	font-family: Poppins;
+	color: #ffffffc2;
+	font-family: 'Poppins';
 	line-height: 2;
 	opacity: 0.75;
 	text-align: justify;
@@ -235,21 +259,47 @@ header {
 	height: auto;
 }
 
+/* Media Queries */
+@media screen and (max-width: 768px) {
+	#navbar ul li {
+		padding: 0px 10px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	#navbar ul li {
+		padding: 0px 5px;
+	}
+
+	.content .introductory-text h2 {
+		font-size: 24px;
+	}
+
+	.content .introductory-text p {
+		font-size: 14px;
+	}
+}
+/* Offers Section */
 #Offers {
 	position: relative;
 	width: 100%;
 	align-items: center;
-  }
-  
-  #Offers .background-image {
+}
+
+#Offers.active {
+	/* ...existing styles... */
+	transition: all 0.3s ease-out;
+}
+
+#Offers .background-image {
 	position: relative;
 	background-image: url('images/mc3.jpg');
 	background-size: cover;
 	background-position: center;
 	height: 420px;
-  }
-  
-  #Offers .overlay {
+}
+
+#Offers .overlay {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -257,41 +307,41 @@ header {
 	height: 100%;
 	background-color: #3C8527;
 	opacity: 0.5;
-  }
-  
-  #Offers .text {
+}
+
+#Offers .text {
 	position: relative;
 	text-align: left;
 	color: #ffffff;
 	margin-left: 5%;
-  }
-  
-  .overlap-image {
+}
+
+.overlap-image {
 	width: 60% !important;
 	max-width: 400px;
 	margin-left: 10%;
 	transform: translateY(-15%);
-  }
-  
-  #Offers .text h2 {
+}
+
+#Offers .text h2 {
 	font-size: 2.5rem;
 	font-weight: bold;
 	color: #ffffff;
-	font-family: Poppins;
-  }
-  
-  #Offers .text p {
+	font-family: 'Poppins';
+}
+
+#Offers .text p {
 	font-size: 1.2rem;
 	line-height: 1.5;
 	color: #ffffff;
-	font-family: Poppins;
-  }
-  
-  #Offers .text .photo {
+	font-family: 'Poppins';
+}
+
+#Offers .text .photo {
 	position: absolute;
-  }
-  
-  #Offers .arrow-down {
+}
+
+#Offers .arrow-down {
 	position: absolute;
 	bottom: 30px;
 	left: 50%;
@@ -301,132 +351,146 @@ header {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 15px solid #ffffff;
-  }
-  
-  
-  #Offers .content-container {
+}
+
+#Offers .content-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100%;
 	margin-top: 50px;
 	background: linear-gradient(to top, rgba(85, 85, 85, 0.151) 0%, rgba(0, 0, 0, 0.568) 100%);
-  }
-  
-  #Offers .offers-content {
-	width: 100%;
-	max-width: 1200px;
+}
+
+#Offers .offers-content {
+	max-width: 1300px;
 	padding: 100px;
 	color: white;
 	display: flex;
 	flex-wrap: wrap;
-  }
-  
-  #Offers .offers-content .left-content {
+}
+
+#Offers .offers-content .left-content {
 	flex: 1;
 	text-align: left;
 	margin-left: 30px;
-  }
-  
-  #Offers .offers-content .left-content p {
+	justify-content: center;
+}
+
+#Offers .offers-content .left-content p {
 	text-align: left;
-  }
-  
-  #Offers .offers-content .right-content {
+}
+
+#Offers .offers-content .right-content {
 	flex: 1;
 	text-align: right;
 	margin-right: 30px;
-  }
-  
-  #Offers .offers-content .right-content p {
+}
+
+#Offers .offers-content .right-content p {
 	text-align: right;
-  }
-  
-  .left-content > img,
-  .right-content > img {
+}
+
+.left-content>img,
+.right-content>img {
 	opacity: 1;
 	transition: opacity 0.5s, transform 0.5s;
-	max-width: 70%;
+	max-width: 100%;
 	width: 100%;
 	height: auto;
-  }
-  
-  #Offers .offers-content h2 {
+}
+
+#Offers .offers-content h2 {
 	font-size: 40px;
 	font-weight: bold;
-	font-family: Poppins;
+	font-family: 'Poppins';
 	letter-spacing: 3px;
-  }
-  
-  #Offers .offers-content h2:first-of-type,
-  #Offers .offers-content h2:nth-of-type(3),
-  #Offers .offers-content h2:last-of-type {
+}
+
+#Offers .offers-content h2:first-of-type,
+#Offers .offers-content h2:nth-of-type(3),
+#Offers .offers-content h2:last-of-type {
 	color: #FF8B00;
-  }
-  
-  #Offers .offers-content h2:nth-of-type(2),
-  #Offers .offers-content h2:nth-of-type(4),
-  #Offers .offers-content h2:nth-of-type(5) {
-	color: #3C8527;
-  }
-  
-  #Offers .offers-content p {
+}
+
+#Offers .offers-content h2:nth-of-type(2),
+#Offers .offers-content h2:nth-of-type(4),
+#Offers .offers-content h2:nth-of-type(5) {
+	color: green;
+}
+
+#Offers .offers-content p {
 	font-size: 18px;
-	color: #ffffff;
-	font-family: Poppins;
+	color: #ffffffc2;
+	font-family: 'Poppins';
 	line-height: 2;
 	opacity: 0.50;
 	text-align: justify;
 	margin-top: 50px;
 	margin-bottom: 70px;
-  }
-  
-  #Offers .row {
+}
+
+#Offers .row {
 	margin-bottom: 80px;
-  }
-  
-  /* Responsive Styles */
-  @media screen and (max-width: 768px) {
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
 	#Offers .text h2 {
-	  font-size: 30px;
+		font-size: 30px;
 	}
-  
+
 	#Offers .text p {
-	  font-size: 16px;
+		font-size: 16px;
 	}
-  
+
 	#Offers .offers-content h2 {
-	  font-size: 30px;
+		font-size: 30px;
 	}
-  
+
 	#Offers .offers-content p {
-	  font-size: 16px;
+		font-size: 16px;
 	}
-  }
-  
-  @media screen and (max-width: 480px) {
-	#Offers .text h2 {
-	  font-size: 24px;
-	}
-  
-	#Offers .text p {
-	  font-size: 14px;
-	}
-  
-	#Offers .offers-content h2 {
-	  font-size: 24px;
-	}
-  
-	#Offers .offers-content p {
-	  font-size: 14px;
-	}
-  
+
 	#Offers .overlap-image {
-	  display: none;
+		display: none;
 	}
-  }
-  
-  
+}
+
+@media screen and (max-width: 480px) {
+	#Offers .text h2 {
+		font-size: 24px;
+	}
+
+	#Offers .text p {
+		font-size: 14px;
+	}
+
+	#Offers .offers-content h2 {
+		font-size: 24px;
+	}
+
+	#Offers .offers-content p {
+		font-size: 14px;
+	}
+
+	#Offers .overlap-image {
+		display: none;
+	}
+}
+
+.offer-slide {
+	transition: opacity 0.5s, transform 0.5s;
+	opacity: 0;
+	transform: translateY(50px);
+}
+
+.offer-slide.slide-in {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* About Us Section */
 #aboutus {
 	display: flex;
 	align-items: center;
@@ -444,7 +508,7 @@ header {
 	width: 100%;
 	top: 50px;
 	bottom: 50px;
-  }
+}
 
 #aboutus .mySwiper {
 	width: 70%;
@@ -543,7 +607,7 @@ header {
 .au_team-description {
 	text-align: left;
 	color: orange;
-	font-family: Poppins;
+	font-family: 'Poppins';
 	font-size: 5rem;
 	margin-bottom: 0.1em;
 }
@@ -561,6 +625,37 @@ header {
 	font-size: 1.18rem;
 	color: #7c7c7c;
 	margin-bottom: 1em;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+	#aboutus {
+		flex-direction: column;
+		padding: 30px;
+	}
+
+	.au-container {
+		flex-direction: column;
+	}
+
+	#aboutus .mySwiper {
+		width: 100%;
+		max-width: none;
+		margin-right: 0;
+		margin-bottom: 50px;
+	}
+
+	.mySwiper .card {
+		margin: 0;
+	}
+
+	.au_team-description {
+		font-size: 3rem;
+	}
+
+	.au_description {
+		font-size: 1rem;
+	}
 }
 
 
@@ -728,7 +823,6 @@ header {
 	align-items: center;
 	justify-content: center;
 	width: 150px;
-	height: 40px;
 	background-color: #7289da;
 	border-radius: 6px;
 	text-decoration: none;
@@ -800,14 +894,15 @@ header {
 }
 
 /* PORTFOLIO */
-#portfolio{
+#portfolio {
 	position: relative;
 	padding: 100px;
 	width: 100%;
-	
+
 	display: flex;
 	flex-wrap: wrap;
 }
+
 #portfolio .pftext-container {
 	position: absolute;
 	left: 10%;
@@ -817,27 +912,28 @@ header {
 	z-index: 10;
 	color: white;
 	font-family: Arial, sans-serif;
-  }
-  
-  #portfolio .pfcarousel-title {
+}
+
+#portfolio .pfcarousel-title {
 	font-size: 100px;
 	font-weight: bold;
 	margin-bottom: 10px;
 	width: 500px;
 	letter-spacing: 1px;
 	line-height: 1;
-	font-family: 'Anton', sans-serif; /* Set the font family to 'Anton' */
+	font-family: 'Anton', sans-serif;
+	/* Set the font family to 'Anton' */
 	color: orange;
-  }
-  
-  #portfolio .pfcarousel-description {
+}
+
+#portfolio .pfcarousel-description {
 	font-size: 14px;
 	line-height: 1;
 	letter-spacing: 1px;
 	width: 350px;
-  }
-  
-  #portfolio .pfheading {
+}
+
+#portfolio .pfheading {
 	position: absolute;
 	top: 0px;
 	left: 0;
@@ -846,9 +942,9 @@ header {
 	text-align: center;
 	padding: 20px;
 	/* z-index: 999;  */
-  }
-  
-  #portfolio .pfheading h1 {
+}
+
+#portfolio .pfheading h1 {
 	color: transparent;
 	margin: 0;
 	font-size: 120px;
@@ -858,23 +954,23 @@ header {
 	-webkit-text-fill-color: transparent;
 	font-family: 'Anton', sans-serif;
 	padding: 40px;
-  }
+}
 
-	#portfolio .gallery {
+#portfolio .gallery {
 	width: 100%;
 	flex-direction: column;
-  }
-  
-  #portfolio .gallery-container {
+}
+
+#portfolio .gallery-container {
 	align-items: center;
 	display: flex;
 	height: 400px;
 	margin: 0 auto;
 	max-width: 1000px;
 	position: relative;
-  }
-  
-  #portfolio .gallery-item {
+}
+
+#portfolio .gallery-item {
 	height: 200px;
 	opacity: 0;
 	position: absolute;
@@ -884,30 +980,30 @@ header {
 	border-radius: 15px;
 	background-size: contain;
 	margin-left: 250px;
-  }
-  
-  #portfolio .gallery-item-1 {
+}
+
+#portfolio .gallery-item-1 {
 	left: 30%;
 	box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.45);
 	opacity: 0.7;
 	transform: translateX(-50%);
-  }
-  
-  #portfolio .gallery-item-2,
-  #portfolio .gallery-item-4 {
+}
+
+#portfolio .gallery-item-2,
+#portfolio .gallery-item-4 {
 	height: 250px;
 	opacity: 0.7;
 	width: 380px;
 	z-index: 1;
-  }
-  
-  #portfolio .gallery-item-2 {
-	  box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.45);
+}
+
+#portfolio .gallery-item-2 {
+	box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.45);
 	left: 39%;
 	transform: translateX(-50%);
-  }
-  
-  #portfolio .gallery-item-3 {
+}
+
+#portfolio .gallery-item-3 {
 	box-shadow: -2px 5px 33px 8px rgba(0, 0, 0, 0.55);
 	height: 300px;
 	opacity: 1;
@@ -915,21 +1011,21 @@ header {
 	transform: translateX(-50%);
 	width: 450px;
 	z-index: 2;
-  }
-  
-  #portfolio .gallery-item-4 {
-	 box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.45);
+}
+
+#portfolio .gallery-item-4 {
+	box-shadow: -2px 5px 33px 6px rgba(0, 0, 0, 0.45);
 	left: 61%;
 	transform: translateX(-50%);
-  }
-  
-  #portfolio .gallery-item-5 {
+}
+
+#portfolio .gallery-item-5 {
 	left: 69%;
 	opacity: 0.7;
 	transform: translateX(-50%);
-  }
-  
-  #portfolio .gallery-controls {
+}
+
+#portfolio .gallery-controls {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
@@ -939,9 +1035,9 @@ header {
 	justify-content: center;
 	margin: 25px 0;
 	height: 100px;
-  }
-  
-  #portfolio .gallery-controls button {
+}
+
+#portfolio .gallery-controls button {
 	background-color: transparent;
 	color: #fff;
 	border: 0;
@@ -952,20 +1048,20 @@ header {
 	transform: translateY(-50%);
 	transition: left 0.05s ease-in-out;
 	z-index: 10;
-	width: 50px; 
-	height: 50px; 
-	border-radius: 50%; 
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-left: 250px;
-  }
-  
-  #portfolio .gallery-controls-button:focus {
+}
+
+#portfolio .gallery-controls-button:focus {
 	outline: none;
-  }
-  
-  #portfolio .gallery-nav {
+}
+
+#portfolio .gallery-nav {
 	top: 20px;
 	display: flex;
 	justify-content: center;
@@ -975,9 +1071,9 @@ header {
 	background-color: transparent;
 	margin-left: 80px;
 	margin-top: 40px;
-  }
-  
-  #portfolio .pfnav-link {
+}
+
+#portfolio .pfnav-link {
 	color: white;
 	font-size: 18px;
 	text-decoration: none;
@@ -988,11 +1084,11 @@ header {
 	font-family: Arial, sans-serif;
 	text-transform: capitalize;
 	position: relative;
-  }
-  
-  #portfolio .pfnav-indicator {
-	bottom: 0; 
-	left: 0; 
+}
+
+#portfolio .pfnav-indicator {
+	bottom: 0;
+	left: 0;
 	width: 100%;
 	background-color: transparent;
 	margin-top: 5px;
@@ -1002,34 +1098,34 @@ header {
 	bottom: -22px;
 	left: 50%;
 	transform: translateX(-50%);
-  }
-  
-  #portfolio .pfnav-link:hover .nav-indicator {
+}
+
+#portfolio .pfnav-link:hover .nav-indicator {
 	opacity: 1;
 	background-color: green;
 	border-radius: 10px;
-  }
-  
-  #portfolio .see-more-button {
-	  text-align: center;
-	  margin-top: -6px;
-	}
-  
-	#portfolio .see-more-btn {
-	  background-color: orange;
-	  color: white;
-	  border: none;
-	  border-radius: 50px;
-	  padding: 10px 20px;
-	  font-size: 24px;
-	  cursor: pointer;
-	  width: 300px;
-	  height: 60px;
-	  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
-	  margin-left: 450px;
-	}
-	
-	#portfolio .pf-overlay {
+}
+
+#portfolio .see-more-button {
+	text-align: center;
+	margin-top: -6px;
+}
+
+#portfolio .see-more-btn {
+	background-color: orange;
+	color: white;
+	border: none;
+	border-radius: 50px;
+	padding: 10px 20px;
+	font-size: 24px;
+	cursor: pointer;
+	width: 300px;
+	height: 60px;
+	box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.3);
+	margin-left: 450px;
+}
+
+#portfolio .pf-overlay {
 	position: absolute;
 	top: 50%;
 	left: 50.5%;
@@ -1044,9 +1140,9 @@ header {
 	justify-content: center;
 	align-items: center;
 	margin-left: 250px;
-  }
-  
-  #portfolio .pf-overlay2 {
+}
+
+#portfolio .pf-overlay2 {
 	position: absolute;
 	top: 55%;
 	left: 50.5%;
@@ -1057,4 +1153,4 @@ header {
 	z-index: 1;
 	border-radius: 0 0 40px 40px;
 	margin-left: 250px;
-  }
+}
